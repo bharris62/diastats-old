@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
 CHROME_PATH = "C:\\Users\\abbh62\\Downloads\\chromedriver_win32\\chromedriver.exe"
-driver = webdriver.PhantomJS()#desired_capabilities=dcap)
+driver = webdriver.PhantomJS()
 driver.get("https://my.livongo.com")
 driver.save_screenshot("test1.jpg")
 username = driver.find_element_by_name('username')
@@ -24,5 +24,24 @@ driver.find_element_by_xpath("""//*[@id="navbar-collapse-xs"]/ul[1]/li[3]/a/span
 sleep(3)
 driver.save_screenshot("test5.jpg")
 driver.find_element_by_xpath("""//*[@id="ng-app"]/body/div[2]/div[3]/div[1]/div/div/div[2]/div/div[2]/div/a/img""").click()
-sleep(5)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+sleep(2)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+sleep(2)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+sleep(2)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+sleep(2)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+sleep(2)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+sleep(2)
+bgs = driver.find_elements_by_class_name("all-data-bg-value")
+date = driver.find_elements_by_class_name("day-bg")
+time = driver.find_elements_by_class_name("hour-bg")
+count = 0
+for b in bgs:
+    print(b.text)
+    count +=1
+print(count)
 driver.save_screenshot("test6.jpg")
