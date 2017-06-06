@@ -9,6 +9,7 @@ from resources.meter import Meter, MeterScrape
 from services import livongo
 from models.login import LoginModel
 from resources.login import ScrapeLogin
+from resources.upload import Upload
 
 
 app = Flask(__name__)
@@ -32,6 +33,7 @@ api.add_resource(User, '/register')
 api.add_resource(Meter, '/v1/meter')
 api.add_resource(MeterScrape, '/v1/meter/<int:id>')
 api.add_resource(ScrapeLogin, '/v1/sites/login')
+api.add_resource(Upload, '/v1/info/upload')
 
 if __name__ == '__main__':
     from db import db
