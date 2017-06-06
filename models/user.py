@@ -48,9 +48,5 @@ class UserModel(db.Model):
     def is_active(self):
         return self.is_enabled
 
-    def save_to_db(self):
-        db.session.add(self)
-        db.session.commit()
-
     def json(self):
         return {'username': self.username, 'email': self.email}

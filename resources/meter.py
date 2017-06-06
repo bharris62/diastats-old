@@ -3,6 +3,8 @@ from flask import jsonify
 from models.user import UserModel
 from datetime import datetime
 from models.meter import MeterModel
+from services.livongo import ScrapeLivongo
+
 
 class Meter(Resource):
     parser = reqparse.RequestParser()
@@ -29,8 +31,12 @@ class Meter(Resource):
         user = UserModel.find_by_id(data['user_id'])
         d = data['date'].split('/')
         date = datetime(int(d[0]), int(d[1]), int(d[2]))
-        meter = MeterModel(date, data['bg'], data['user_id'])
+        meter = MeterModel(date, data['bg'], user.id)
 
         meter.save_to_db()
 
 
+class MeterScrape(Resource):
+
+    def post(self, id):
+        ScrapeLivongo.scrape(id)

@@ -11,7 +11,7 @@ class MeterModel(db.Model):
     date = db.Column(db.DateTime, default=lambda x: datetime.utcnow())
     time_submitted = db.Column(db.DateTime, default=datetime.utcnow())
     bg = db.Column(db.Integer, nullable=False)
-    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, date, bg, user):
         self.date = date
