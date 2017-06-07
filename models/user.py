@@ -25,7 +25,7 @@ class UserModel(db.Model):
     def __init__(self, email, username, password, first_name, last_name, birth_year):
         self.email = email
         self.username = username
-        self.password = password
+        self.set_password(password)
         self.first_name = first_name
         self.last_name = last_name
         self.birth_year = birth_year
@@ -48,6 +48,12 @@ class UserModel(db.Model):
 
     def is_active(self):
         return self.is_enabled
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
     def json(self):
         return {'username': self.username, 'email': self.email}
