@@ -3,6 +3,7 @@ from flask_restful import Api
 from flask_jwt import JWT
 from flask_bcrypt import Bcrypt
 from models import meter, user
+from models.pump import BolusModel
 from security import authenticate, identity
 from resources.user import User
 from resources.meter import Meter, MeterScrape
@@ -33,7 +34,7 @@ api.add_resource(User, '/register')
 api.add_resource(Meter, '/v1/meter')
 api.add_resource(MeterScrape, '/v1/meter/<int:id>')
 api.add_resource(ScrapeLogin, '/v1/sites/login')
-api.add_resource(Upload, '/v1/info/upload')
+api.add_resource(Upload, '/v1/info/upload/<int:id>')
 
 if __name__ == '__main__':
     from db import db
