@@ -1,4 +1,4 @@
-from instance.config import USERNAME, PASSWORD
+
 from selenium import webdriver
 from time import sleep
 from datetime import datetime as dt
@@ -52,7 +52,6 @@ class ScrapeLivongo:
         sleep(3)
         driver.find_element_by_xpath(
             """//*[@id="ng-app"]/body/div[2]/div[3]/div[1]/div/div/div[2]/div/div[2]/div/a/img""").click()
-
 
     @classmethod
     def scroll(cls, times, driver):
