@@ -40,3 +40,7 @@ class MeterScrape(Resource):
 
     def post(self, id):
         ScrapeLivongo.scrape(id)
+
+    def get(self, id):
+
+        return jsonify({"user_id": id})
