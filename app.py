@@ -37,6 +37,7 @@ api.add_resource(ScrapeLogin, '/v1/sites/login')
 api.add_resource(UploadTandem, '/v1/info/upload/tandem/<int:id>')
 api.add_resource(UploadDexcom, '/v1/info/upload/dexcom/<int:id>')
 
+# run the codes
 if __name__ == '__main__':
     from db import db
     db.init_app(app)
