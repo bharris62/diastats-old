@@ -8,6 +8,8 @@ from models.meter import MeterModel
 from models.login import LoginModel
 
 
+# Scraping is pretty hacky, may want to redo this.
+
 class ScrapeLivongo:
 
     @classmethod
